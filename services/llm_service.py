@@ -23,19 +23,19 @@ async def generate_recipes_with_mistral(prompt: str) -> dict:
     headers = {
         "Authorization": f"Bearer {OPENROUTER_API_KEY}",
         "Content-Type": "application/json",
-        "HTTP-Referer": "http://localhost:8000",  # Optionnel, pour OpenRouter
-        "X-Title": "Recipe Generator"  # Optionnel, pour OpenRouter
+        "HTTP-Referer": "http://localhost:8000",  
+        "X-Title": "Recipe Generator" 
     }
 
     payload = {
-        "model": "mistralai/mixtral-8x7b-instruct",  # À confirmer via OpenRouter
+        "model": "mistralai/mixtral-8x7b-instruct",  
         "messages": [
             {"role": "system", "content": "Tu es un chef cuisinier expert."},
             {"role": "user", "content": prompt}
         ],
-        "response_format": {"type": "json_object"},  # Forcer une sortie JSON
+        "response_format": {"type": "json_object"},  
         "temperature": 0.7,
-        "max_tokens": 1500,  # Suffisant pour des recettes détaillées
+        "max_tokens": 1500, 
         "timeout": 60
     }
 

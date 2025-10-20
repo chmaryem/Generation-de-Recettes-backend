@@ -34,15 +34,23 @@ Génère 3 recettes au format JSON :
     "difficulty": "...",
     "ingredients": ["..."],
     "steps": ["..."],
-    "justification": "..."
+    "justification": "...",
+    "macros": {{
+        "calories": ...,
+        "protein": ...,
+        "carbs": ...,
+        "fat": ...
+    }}
   }},
   "creative": {{ ... }},
   "express": {{ ... }}
 }}
 
-⚠️ Respecte toutes les contraintes et propose des substitutions si nécessaire.
+⚠️ Respecte toutes les contraintes.
 ⚠️ La recette express doit ≤ 5 min.
-    """
+⚠️ Donne des valeurs approximatives réalistes pour les macros par portion.
+"""
+
 
     try:
         data = await generate_recipes_with_mistral(prompt)
